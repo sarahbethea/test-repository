@@ -1,0 +1,313 @@
+package weeklyProjects;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class week4project {
+
+	public static void main(String[] args) {
+	
+	//1.
+	
+	int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
+	
+	int subtracted = (ages[ages.length - 1] -= ages[0]);
+	System.out.println(subtracted);
+	
+	int[] ages2 = new int[9];
+	
+	ages2[0] = 9;
+	ages2[1] = 23;
+	ages2[2] = 16;
+	ages2[3] = 42;
+	ages2[4] = 23;
+	ages2[5] = 21;
+	ages2[6] = 55;
+	ages2[7] = 32;
+	ages2[8] = 28;
+
+	System.out.println(ages2[ages2.length - 1] -= ages2[0]);
+	
+	
+	int sum = 0;
+	for (int i = 0; i < ages2.length; i++) {
+		sum += ages2[i];
+	}
+	int averageAge = (sum / ages2.length);
+	
+	System.out.println(averageAge);
+	
+		
+		
+	//2
+	System.out.println("Question 2:");
+	
+	String[] names = new String[6];
+	names[0] = "Sam";
+	names[1] = "Tommy";
+	names[2] = "Tim";
+	names[3] = "Sally";
+	names[4] = "Buck";
+	names[5] = "Bob";
+	
+	int sumLetters = 0;
+	for (int i = 0; i < names.length; i++) {
+		sumLetters += names[i].length();
+	}
+	int averageLength = sumLetters / names.length;
+	System.out.println(averageLength);
+	
+	
+	String concatenatedName = "";
+	for (String name : names) {
+		concatenatedName += name + " ";
+	}
+	System.out.println(concatenatedName);
+	
+
+	
+	//3
+	
+	// to access last element of array:
+	
+	
+	// ages[ages.length - 1] 
+		
+	
+	//4
+	
+	// ages[0]
+	
+	
+	
+	//5
+	
+	
+	
+	int[] nameLengths = new int[names.length];
+	
+	for (int i = 0; i < names.length; i++) {
+		nameLengths[i] = names[i].length();
+	}
+	
+	
+	
+	//6
+	System.out.println("Question 6:");
+	
+	int sumNameLengths = 0;
+	
+	for (int length : nameLengths) {
+		sumNameLengths += length;
+	}
+	
+	System.out.println(sumNameLengths);
+	
+	
+	//7
+	System.out.println("Question 7:");
+	
+	System.out.println(concatenatedWord("Hello", 3));
+	
+	
+	
+	//8
+	System.out.println("Question 8:");
+	
+	System.out.println(createFullName("Sarah", "Bethea"));
+	
+	
+	
+	//9
+	System.out.println("Question 9:");
+	
+	int[] numbersArray = {25, 7, 32, 56, 45, 3};
+	
+	 System.out.println(isSumGreater(numbersArray));
+	
+	
+	//10
+	System.out.println("Question 10:");
+	 
+	double[] arrayOfDoubles = {1.55, 2.76, 13.50, 15.25, 9.9};
+	
+	System.out.println(averageOfDoubleArray(arrayOfDoubles));
+	
+	
+	//11
+	System.out.println("Question 11:");
+	double[] arrayOfDoubles2 = {13.70, 4.65, 19.23, 23.68, 35.25};
+	
+	System.out.println(compareAveragesOfArrays(arrayOfDoubles, arrayOfDoubles2));
+	
+	
+	//12
+	System.out.println("Question 12:");
+	System.out.println(willBuyDrink(true, 20.50));
+	
+	
+	
+	//13
+	System.out.println("Question 13:");
+	
+	int[] teamMissoula = {3, 12, 8, 6, 11};
+	int[] teamBozeman = {4, 7, 5, 9, 10};
+	int[] teamPortland = {13, 8, 9, 11, 7};
+	int[] teamSeattle = {14, 7, 9, 12, 10};
+	
+	System.out.println(Arrays.toString(createArrayOfHighScores(teamMissoula, teamBozeman, teamPortland, teamSeattle)));
+	
+		
+		
+	
+		
+		
+
+	}
+
+	
+// Q13 Method 
+	
+	// Write a method that takes 4 int arrays and returns a new array with the highest values from each.
+	// This could be useful when analyzing data, such as sports times or scores, to see the top of the range or then find an average of high scores. 
+	
+	
+	public static int[] createArrayOfHighScores(int[] array1, int[] array2, int[] array3, int[] array4) {
+		
+		int[] highScores = new int[4]; 
+		
+		
+		if (array1.length > 0 && array2.length > 0 && array3.length > 0 && array4.length > 0) {
+			
+			highScores[0] = findMax(array1);
+			highScores[1] = findMax(array2);
+			highScores[2] = findMax(array3);
+			highScores[3] = findMax(array4);
+			
+					
+		} else {
+			System.out.println("Int arrays must have more than 0 values.");
+		}
+			
+		return highScores;	
+	}
+	
+	
+	public static int findMax(int[] array) {
+		
+		int max = array[0];
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] > max) {
+				max = array[i];
+			}
+		}
+		return max; 
+	}
+	
+	
+	
+	
+	
+	
+// Q12 Method
+	
+	public static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
+		
+		if (isHotOutside && moneyInPocket > 10.50) {
+			return true;
+		} else {
+			return false;
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+// Q11 Method
+	
+	public static boolean compareAveragesOfArrays(double[] firstArray, double[] secondArray) {
+		
+		double sumFirstArray = 0;
+		double sumSecondArray = 0;
+		
+		for (int i = 0; i < firstArray.length; i++) {
+			sumFirstArray += firstArray[i];
+		}
+		
+		for (int i = 0; i < secondArray.length; i++) {
+			sumSecondArray += secondArray[i];
+		}
+		
+		return (sumFirstArray / firstArray.length) > (sumSecondArray / secondArray.length);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+// Q10 Method
+	
+	public static double averageOfDoubleArray(double[] doubleArray) {
+		
+		double sum = 0;
+		for (int i = 0; i < doubleArray.length; i++) {
+			sum += doubleArray[i];
+		}
+		return sum / doubleArray.length;
+	}
+	
+	
+	
+	
+	
+	
+// Q9 Method
+	
+	public static boolean isSumGreater(int[] array) {
+		
+		int sum = 0;
+		for (int i = 0; i < array.length; i++) {
+			sum += array[i];
+		}
+		return (sum > 100);	
+	}
+	
+	
+// Q8 Method	
+	
+	public static String createFullName(String firstName, String lastName) {
+		
+	//	String fullName = firstName + " " + lastName;
+	//	return fullName;
+		return firstName + " " + lastName;
+	}
+	
+	
+	
+	
+// Q7 Method
+	
+	public static String concatenatedWord(String word, int n) {
+		
+		String newString = "";
+		
+		for (int i = 0; i < n; i++) {
+			newString += word;
+		}
+		return newString;
+	 }
+	
+	
+}
